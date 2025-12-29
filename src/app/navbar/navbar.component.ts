@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { AfterViewInit, Component } from "@angular/core";
 
 @Component({
     selector: "app-navbar",
@@ -6,5 +6,14 @@ import { Component } from "@angular/core";
     styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent{
-    
+    mobileMenuOpen = false;
+
+    toggleMobileMenu() {
+        this.mobileMenuOpen = !this.mobileMenuOpen;
+    }
+
+    closeMobileMenu() {
+        this.mobileMenuOpen = false;
+    }
+
 }

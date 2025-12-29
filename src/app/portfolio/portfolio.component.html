@@ -1,0 +1,103 @@
+<div class="portfolio-container">
+  <!-- Header Section -->
+  <section class="portfolio-header">
+    <div class="container">
+      <h1 class="section-title">Portfolio</h1>
+      <p class="section-subtitle">Explore my work, skills, and professional journey</p>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="section-heading">About Me</h2>
+      <div class="about-content">
+        <p>
+          I'm a passionate Software Engineer with expertise in building modern web applications. 
+          With a strong foundation in C#, ASP.NET MVC, and Angular, I create scalable and efficient solutions 
+          that solve real-world problems. I'm constantly learning new technologies and best practices to stay 
+          at the forefront of software development.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills-section">
+    <div class="container">
+      <h2 class="section-heading">Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-item" *ngFor="let skill of skills">
+          <div class="skill-name">{{ skill.name }}</div>
+          <div class="skill-bar">
+            <div class="skill-progress" [style.width.%]="skill.level"></div>
+          </div>
+          <div class="skill-level">{{ skill.level }}%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience-section">
+    <div class="container">
+      <h2 class="section-heading">Professional Experience</h2>
+      <div class="experience-timeline">
+        <div class="experience-item" *ngFor="let exp of experiences">
+          <div class="experience-card">
+            <h3 class="experience-position">{{ exp.position }}</h3>
+            <h4 class="experience-company">{{ exp.company }}</h4>
+            <p class="experience-duration">{{ exp.duration }}</p>
+            <p class="experience-description">{{ exp.description }}</p>
+            <div class="experience-technologies">
+              <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="container">
+      <h2 class="section-heading">Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card" *ngFor="let project of projects">
+          <div class="project-content">
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="project-technologies">
+              <span class="tech-badge" *ngFor="let tech of project.technologies">{{ tech }}</span>
+            </div>
+            <a *ngIf="project.link && project.link !== '#'" [href]="project.link" class="project-link" target="_blank">
+              View Project →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="certifications-section">
+    <div class="container">
+      <h2 class="section-heading">Certifications & Learning</h2>
+      <div class="certifications-list">
+        <div class="certification-item" *ngFor="let cert of certifications">
+          <i class="fas fa-certificate"></i>
+          <span>{{ cert }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Let's Work Together</h2>
+      <p>Interested in collaborating or have a project in mind?</p>
+      <a routerLink="/contact" class="cta-button">Get In Touch</a>
+    </div>
+  </section>
+</div>
