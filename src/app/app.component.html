@@ -35,4 +35,49 @@
   <div class="page-content">
     <router-outlet></router-outlet>
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Chetan Deore</h3>
+          <p>Software Engineer passionate about building modern web applications.</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/cdeore/" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/cdeore" target="_blank" rel="noopener noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:cdeore20@gmail.com">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a routerLink="/">Home</a></li>
+            <li><a routerLink="/portfolio">Portfolio</a></li>
+            <li><a routerLink="/contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Technologies</h4>
+          <ul>
+            <li>Angular</li>
+            <li>ASP.NET MVC</li>
+            <li>SQL Server</li>
+            <li>TypeScript</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; {{ currentYear }} Chetan Deore. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 </div>

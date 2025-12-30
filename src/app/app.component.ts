@@ -8,8 +8,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'chetandeore.com';
   storedTheme: string = 'light';
-  hamMenuClass: boolean = false;
-
+  hamMenuClass: boolean = false;  currentYear: number = new Date().getFullYear();
   ngOnInit(): void {
     let theme = localStorage.getItem('user-theme');
     if (theme)

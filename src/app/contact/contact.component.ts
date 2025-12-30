@@ -18,8 +18,8 @@ export class ContactComponent implements OnInit {
     {
       icon: 'fas fa-envelope',
       title: 'Email',
-      value: 'chetan.deore@example.com',
-      link: 'mailto:chetan.deore@example.com'
+      value: 'cdeore20@gmail.com',
+      link: 'mailto:cdeore20@gmail.com'
     },
     {
       icon: 'fab fa-linkedin',
@@ -30,13 +30,13 @@ export class ContactComponent implements OnInit {
     {
       icon: 'fab fa-github',
       title: 'GitHub',
-      value: 'github.com/cdeore',
-      link: 'https://github.com/cdeore'
+      value: 'github.com/chetandeo',
+      link: 'https://github.com/chetandeo'
     },
     {
       icon: 'fas fa-map-marker-alt',
       title: 'Location',
-      value: 'India'
+      value: 'Pune, MH, India'
     }
   ];
 

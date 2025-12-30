@@ -37,9 +37,16 @@ export class PortfolioComponent implements OnInit {
 
   experiences: Experience[] = [
     {
-      company: 'Your Company',
+      company: 'LTI Mindtree Ltd',
+      position: 'Senior Software Engineer',
+      duration: '2025 - Present',
+      description: 'Developing full-stack web applications using ASP.NET MVC and Angular. Working with SQL Server databases and building RESTful APIs.',
+      technologies: ['C#', 'ASP.NET MVC', 'Angular', 'SQL Server', 'Web API']
+    },
+    {
+      company: '12th Wonder LLC',
       position: 'Software Engineer',
-      duration: '2020 - Present',
+      duration: '2022 - 2025',
       description: 'Developing full-stack web applications using ASP.NET MVC and Angular. Working with SQL Server databases and building RESTful APIs.',
       technologies: ['C#', 'ASP.NET MVC', 'Angular', 'SQL Server', 'Web API']
     }
