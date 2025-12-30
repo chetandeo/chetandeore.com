@@ -13,7 +13,6 @@
 .showcase-area .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  align-items: center;
   justify-content: center;
 }
 
@@ -82,7 +81,7 @@
 }
 
 .person {
-  width: 123%;
+  width: 100%;
   transform: translate(15%, 25px);
   filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
 }
@@ -280,4 +279,7 @@
     position:relative;
     top:-0.14em;
     left:10px;
+}
+.left{
+  margin-top:100px;
 }
