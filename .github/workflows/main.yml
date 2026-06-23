@@ -3,7 +3,7 @@ name: Build and Deploy Angular to EC2
 on:
   push:
     branches:
-      - chetan  # Triggers the deployment whenever you push to the main branch
+      - main  # Triggers the deployment whenever you push to the main branch
 
 jobs:
   deploy:
