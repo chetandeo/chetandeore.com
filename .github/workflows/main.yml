@@ -36,5 +36,5 @@ jobs:
         REMOTE_USER: ${{ secrets.EC2_USERNAME }}
         TARGET: /usr/share/nginx/html/
         # Update the source path below to match your exact Angular build output folder
-        SOURCE: dist/chetandeore.com/browser/
+        SOURCE: dist/browser/
         ARGS: "-rlgoDzvO --delete"
