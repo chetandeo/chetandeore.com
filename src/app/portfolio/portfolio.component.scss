@@ -79,9 +79,9 @@
 .skills-section {
   .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
@@ -98,31 +98,65 @@
     }
 
     .skill-name {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #fff;
-      margin-bottom: 10px;
-      font-weight: 500;
+      margin-bottom: 6px;
+      font-weight: 600;
     }
 
-    .skill-bar {
-      height: 8px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-bottom: 8px;
+    .skill-subtitle {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 0.9rem;
+      margin-bottom: 16px;
+    }
 
-      .skill-progress {
-        height: 100%;
-        background: linear-gradient(90deg, #64bcf4, #fff);
-        border-radius: 4px;
-        transition: width 1s ease;
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      span {
+        background: rgba(100, 188, 244, 0.2);
+        color: #dff4ff;
+        padding: 6px 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(100, 188, 244, 0.3);
+        font-size: 0.82rem;
       }
     }
+  }
+}
 
-    .skill-level {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
-      text-align: right;
+// Impact Section
+.impact-section {
+  .impact-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .impact-card {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 20px;
+    transition: transform 0.3s ease, background 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    span {
+      color: #fff;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
     }
   }
 }
@@ -178,6 +212,17 @@
       margin-bottom: 15px;
     }
 
+    .experience-highlights {
+      padding-left: 20px;
+      margin: 0 0 18px;
+
+      li {
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.6;
+        margin-bottom: 8px;
+      }
+    }
+
     .experience-technologies {
       display: flex;
       flex-wrap: wrap;
@@ -230,7 +275,27 @@
         line-height: 1.6;
         color: rgba(255, 255, 255, 0.85);
         margin-bottom: 15px;
-        min-height: 60px;
+        min-height: 88px;
+      }
+
+      .project-highlights {
+        padding-left: 18px;
+        margin: 0 0 15px;
+        min-height: 190px;
+
+        li {
+          color: rgba(255, 255, 255, 0.86);
+          line-height: 1.55;
+          margin-bottom: 8px;
+          font-size: 0.92rem;
+        }
+      }
+
+      .project-impact {
+        color: #fff;
+        font-weight: 600;
+        line-height: 1.5;
+        margin-bottom: 16px;
       }
 
       .project-technologies {
@@ -260,6 +325,40 @@
           color: #fff;
         }
       }
+    }
+  }
+}
+
+// Education Section
+.education-section {
+  .education-list {
+    max-width: 850px;
+    margin: 0 auto;
+    display: grid;
+    gap: 18px;
+  }
+
+  .education-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 4px solid #64bcf4;
+    border-radius: 12px;
+    padding: 22px 26px;
+
+    h3 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+    }
+
+    p {
+      color: #64bcf4;
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    span {
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.5;
     }
   }
 }
@@ -360,6 +459,17 @@
 
     .projects-grid {
       grid-template-columns: 1fr;
+    }
+
+    .impact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .projects-section .project-card .project-content {
+    .project-description,
+    .project-highlights {
+      min-height: auto;
     }
   }
 }
