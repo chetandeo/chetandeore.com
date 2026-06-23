@@ -1,0 +1,40 @@
+name: Build and Deploy Angular to EC2
+
+on:
+  push:
+    branches:
+      - chetan  # Triggers the deployment whenever you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the repository code
+    - name: Checkout Source Code
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-level: 20
+        cache: 'npm'
+
+    # Step 3: Install dependencies and build the project
+    - name: Install Dependencies & Build
+      run: |
+        npm ci
+        npm run build -- --configuration=production
+
+    # Step 4: Sync the built files to the EC2 instance via SSH
+    - name: Deploy Build to EC2
+      uses: easingthemes/ssh-deploy@v5.1.0
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        REMOTE_HOST: ${{ secrets.EC2_HOST }}
+        REMOTE_USER: ${{ secrets.EC2_USERNAME }}
+        TARGET: /usr/share/nginx/html/
+        # Update the source path below to match your exact Angular build output folder
+        SOURCE: dist/chetandeore.com/browser/
+        ARGS: "-rlgoDzvO --delete"
