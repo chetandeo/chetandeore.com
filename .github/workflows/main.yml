@@ -26,13 +26,6 @@ jobs:
       run: |
         npm ci
         npm run build -- --configuration=production
- # 🔍 TEMPORARY DEBUG STEP: Find the exact folder path
-    - name: Show Build Output Structure
-      run: |
-        echo "=== Root Contents ==="
-        ls -la
-        echo "=== Dist Contents ==="
-        ls -R dist/ || echo "dist folder not found!"
         
     # Step 4: Sync the built files to the EC2 instance via SSH
     - name: Deploy Build to EC2
@@ -43,5 +36,5 @@ jobs:
         REMOTE_USER: ${{ secrets.EC2_USERNAME }}
         TARGET: /usr/share/nginx/html/
         # Update the source path below to match your exact Angular build output folder
-        SOURCE: "dist/CHETANDEORE_FOLDER/"
+        SOURCE: dist/chetandeore.com/
         ARGS: "-rlgoDzvO --delete"
