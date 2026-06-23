@@ -2,8 +2,8 @@
   <!-- Header Section -->
   <section class="portfolio-header">
     <div class="container">
-      <h1 class="section-title">Portfolio</h1>
-      <p class="section-subtitle">Explore my work, skills, and professional journey</p>
+      <h1 class="section-title">Senior Software Engineer</h1>
+      <p class="section-subtitle">.NET 8+ | Generative AI + RAG Specialist | Azure Certified</p>
     </div>
   </section>
 
@@ -13,11 +13,23 @@
       <h2 class="section-heading">About Me</h2>
       <div class="about-content">
         <p>
-          I'm a passionate Software Engineer with expertise in building modern web applications. 
-          With a strong foundation in C#, ASP.NET MVC, and Angular, I create scalable and efficient solutions 
-          that solve real-world problems. I'm constantly learning new technologies and best practices to stay 
-          at the forefront of software development.
+          I build production Retrieval-Augmented Generation systems integrating Azure OpenAI,
+          Semantic Kernel, and vector search, processing 10K+ enterprise documents daily with
+          92% retrieval accuracy. I also architect full-stack .NET applications handling
+          high-volume business workflows with strong uptime, maintainability, and measurable impact.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Section -->
+  <section class="impact-section">
+    <div class="container">
+      <h2 class="section-heading">Impact at a Glance</h2>
+      <div class="impact-grid">
+        <div class="impact-card" *ngFor="let metric of impactMetrics">
+          <span>{{ metric }}</span>
+        </div>
       </div>
     </div>
   </section>
@@ -27,12 +39,12 @@
     <div class="container">
       <h2 class="section-heading">Technical Skills</h2>
       <div class="skills-grid">
-        <div class="skill-item" *ngFor="let skill of skills">
-          <div class="skill-name">{{ skill.name }}</div>
-          <div class="skill-bar">
-            <div class="skill-progress" [style.width.%]="skill.level"></div>
+        <div class="skill-item" *ngFor="let group of skills">
+          <div class="skill-name">{{ group.title }}</div>
+          <p class="skill-subtitle">{{ group.subtitle }}</p>
+          <div class="skill-tags">
+            <span *ngFor="let skill of group.skills">{{ skill }}</span>
           </div>
-          <div class="skill-level">{{ skill.level }}%</div>
         </div>
       </div>
     </div>
@@ -49,6 +61,9 @@
             <h4 class="experience-company">{{ exp.company }}</h4>
             <p class="experience-duration">{{ exp.duration }}</p>
             <p class="experience-description">{{ exp.description }}</p>
+            <ul class="experience-highlights">
+              <li *ngFor="let highlight of exp.highlights">{{ highlight }}</li>
+            </ul>
             <div class="experience-technologies">
               <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
             </div>
@@ -67,6 +82,10 @@
           <div class="project-content">
             <h3 class="project-title">{{ project.title }}</h3>
             <p class="project-description">{{ project.description }}</p>
+            <ul class="project-highlights">
+              <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
+            </ul>
+            <p class="project-impact">{{ project.impact }}</p>
             <div class="project-technologies">
               <span class="tech-badge" *ngFor="let tech of project.technologies">{{ tech }}</span>
             </div>
@@ -92,11 +111,25 @@
     </div>
   </section>
 
+  <!-- Education Section -->
+  <section class="education-section">
+    <div class="container">
+      <h2 class="section-heading">Education</h2>
+      <div class="education-list">
+        <div class="education-item" *ngFor="let item of education">
+          <h3>{{ item.degree }}</h3>
+          <p>{{ item.school }} - {{ item.year }}</p>
+          <span *ngIf="item.details">{{ item.details }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Call to Action -->
   <section class="cta-section">
     <div class="container">
-      <h2>Let's Work Together</h2>
-      <p>Interested in collaborating or have a project in mind?</p>
+      <h2>Let's Build Reliable AI-Enabled Software</h2>
+      <p>Open to senior engineering roles focused on .NET, Azure, and Generative AI systems.</p>
       <a routerLink="/contact" class="cta-button">Get In Touch</a>
     </div>
   </section>

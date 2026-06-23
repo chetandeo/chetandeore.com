@@ -28,6 +28,12 @@ export class ContactComponent implements OnInit {
       link: 'https://www.linkedin.com/in/cdeore/'
     },
     {
+      icon: 'fas fa-phone',
+      title: 'Phone',
+      value: '+91-9503002981',
+      link: 'tel:+919503002981'
+    },
+    {
       icon: 'fab fa-github',
       title: 'GitHub',
       value: 'github.com/chetandeo',
