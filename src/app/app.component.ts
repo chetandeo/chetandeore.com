@@ -1,4 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { SeoData, SeoService } from './seo.service';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +9,35 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'chetandeore.com';
+  title = 'chetandeo.in';
   storedTheme: string = 'light';
   hamMenuClass: boolean = false;  currentYear: number = new Date().getFullYear();
+
+  constructor(
+    private readonly router: Router,
+    private readonly seoService: SeoService
+  ) {}
+
   ngOnInit(): void {
     let theme = localStorage.getItem('user-theme');
     if (theme)
       this.storedTheme = theme;
+
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map(() => this.router.routerState.root),
+      map(route => {
+        while (route.firstChild) {
+          route = route.firstChild;
+        }
+
+        return route.snapshot.data['seo'] as SeoData;
+      })
+    ).subscribe(seo => {
+      if (seo) {
+        this.seoService.update(seo);
+      }
+    });
   }
 
   setTheme() {

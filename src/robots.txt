@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chetandeo.in/sitemap.xml
