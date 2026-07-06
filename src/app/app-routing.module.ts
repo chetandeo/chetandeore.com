@@ -10,9 +10,9 @@ const routes: Routes = [
     component: LandingPageComponent,
     data: {
       seo: {
-        title: 'Chetan Deore | Senior Software Engineer | .NET, Azure OpenAI, RAG',
-        description: 'Chetan Deore is a Senior Software Engineer in Pune specializing in .NET 8, Angular, Azure OpenAI, Semantic Kernel, RAG systems, Azure AI Search, PostgreSQL, and cloud-ready enterprise applications.',
-        keywords: 'Chetan Deore, Chetan Deore portfolio, Senior Software Engineer Pune, .NET 8 developer, Azure OpenAI engineer, RAG specialist, Semantic Kernel developer, Angular developer, C# developer',
+        title: 'Chetan Deore | Senior Software Engineer | .NET 8, AI-Augmented Development',
+        description: 'Chetan Deore is a Senior Software Engineer in Pune specializing in .NET 8, Angular, Azure, Amazon Q, GitHub Copilot, Cursor, Claude, agentic workflows, PostgreSQL, pgvector, and cloud-ready enterprise applications.',
+        keywords: 'Chetan Deore, Chetan Deore portfolio, Senior Software Engineer Pune, .NET 8 developer, AI augmented development, Amazon Q developer, GitHub Copilot, Cursor IDE, Claude, agentic workflows, Angular developer, C# developer',
         url: '/'
       }
     }
@@ -22,9 +22,9 @@ const routes: Routes = [
     component: PortfolioComponent,
     data: {
       seo: {
-        title: 'Portfolio | Chetan Deore | .NET 8, Generative AI, RAG Projects',
-        description: 'Explore Chetan Deore portfolio projects and experience across .NET 8, Azure OpenAI, Semantic Kernel, RAG architecture, Azure AI Search, Angular, PostgreSQL, MSSQL, Docker, and enterprise APIs.',
-        keywords: 'Chetan Deore projects, .NET 8 portfolio, Generative AI portfolio, RAG projects, Azure OpenAI projects, Semantic Kernel projects, Angular portfolio, PostgreSQL optimization',
+        title: 'Portfolio | Chetan Deore | .NET 8, AI Tools, Agentic Workflows',
+        description: 'Explore Chetan Deore portfolio projects and experience across .NET 8, Amazon Q, GitHub Copilot, Cursor, Claude, agentic CI/CD, Angular, PostgreSQL, MSSQL, pgvector, Docker, and enterprise APIs.',
+        keywords: 'Chetan Deore projects, .NET 8 portfolio, AI augmented development portfolio, Amazon Q projects, GitHub Copilot, Cursor IDE, Claude, agentic workflows, Angular portfolio, PostgreSQL optimization, pgvector',
         url: '/portfolio'
       }
     }
@@ -34,9 +34,9 @@ const routes: Routes = [
     component: ContactComponent,
     data: {
       seo: {
-        title: 'Contact Chetan Deore | Senior .NET and Generative AI Engineer',
-        description: 'Contact Chetan Deore for senior software engineering roles, .NET full-stack development, Azure OpenAI integrations, RAG implementation, Angular applications, and enterprise software modernization.',
-        keywords: 'Contact Chetan Deore, hire .NET developer Pune, hire Azure OpenAI engineer, senior software engineer contact, RAG implementation consultant, Angular developer Pune',
+        title: 'Contact Chetan Deore | Senior .NET and AI-Augmented Engineer',
+        description: 'Contact Chetan Deore for senior software engineering roles, .NET full-stack development, AI-augmented delivery workflows, agentic CI/CD automation, Angular applications, and enterprise software modernization.',
+        keywords: 'Contact Chetan Deore, hire .NET developer Pune, AI augmented engineer, senior software engineer contact, agentic workflows, GitHub Copilot developer, Angular developer Pune',
         url: '/contact'
       }
     }
