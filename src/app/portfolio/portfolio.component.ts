@@ -40,60 +40,75 @@ interface Education {
 export class PortfolioComponent implements OnInit {
 
   impactMetrics = [
-    '10K+ documents/day processed through AI-powered RAG pipelines',
-    '92% retrieval accuracy across enterprise document workflows',
+    '35% faster feature delivery using Amazon Q, Claude, Copilot, and Cursor',
+    '86% faster deployment flow through agentic CI/CD validation and rollback automation',
+    '88% test coverage maintained with AI-assisted test writing and review workflows',
     '99.2% API uptime across production services',
     '5M+ transactions/month supported by full-stack .NET applications',
-    '3 junior engineers mentored on Generative AI integration'
+    '10K+ documents/day processed through Semantic Kernel and pgvector pipelines'
   ];
 
   skills: SkillGroup[] = [
     {
-      title: 'Core Stack',
-      subtitle: 'Full-stack application engineering',
-      skills: ['.NET 8', 'C#', 'ASP.NET Core Web API', 'Entity Framework Core', 'Angular 14+', 'TypeScript']
+      title: 'AI-Augmented Development Tools',
+      subtitle: 'Daily workflow acceleration',
+      skills: ['Amazon Q', 'GitHub Copilot', 'Cursor IDE', 'Claude', 'ChatGPT', 'Agentic AI Workflows', 'Code Generation', 'Test Writing', 'Documentation Automation']
     },
     {
-      title: 'Generative AI',
-      subtitle: 'Hands-on LLM orchestration',
-      skills: ['Azure OpenAI API', 'Semantic Kernel', 'Prompt Engineering', 'RAG Architecture', 'Vector Indexing', 'Azure AI Search', 'pgvector']
+      title: 'Backend Development',
+      subtitle: 'Production API architecture',
+      skills: ['.NET 8', 'C#', 'ASP.NET Core Web API', 'Entity Framework Core', 'Semantic Kernel', 'REST APIs', 'Microservices']
+    },
+    {
+      title: 'Frontend Development',
+      subtitle: 'Full-stack product delivery',
+      skills: ['Angular 14+', 'TypeScript', 'React.js', 'Responsive UI', 'HTML', 'CSS']
     },
     {
       title: 'Cloud & Infrastructure',
       subtitle: 'Production deployments',
-      skills: ['Microsoft Azure', 'App Services', 'Functions', 'Cosmos DB', 'AI Services', 'Container Registry', 'Docker', 'GitHub Actions CI/CD']
+      skills: ['Microsoft Azure', 'App Services', 'Functions', 'Cosmos DB', 'AI Services', 'Container Registry', 'Docker', 'GitHub Actions CI/CD', 'Agentic Deployment Automation']
     },
     {
       title: 'Databases & Optimization',
       subtitle: 'Performance-focused data systems',
-      skills: ['PostgreSQL', 'MSSQL', 'Query Performance Tuning', 'Stored Procedure Optimization', 'Semantic Search Indexing', 'Vector Operations']
+      skills: ['PostgreSQL', 'MSSQL', 'pgvector', 'Query Performance Tuning', 'Stored Procedures', 'Semantic Search', 'Vector Operations']
+    },
+    {
+      title: 'Development Practices',
+      subtitle: 'Quality and delivery habits',
+      skills: ['TDD', 'Code Reviews', 'Git', 'GitHub', 'Agile', 'Debugging', 'Prompt Engineering for Code']
     }
   ];
 
   experiences: Experience[] = [
     {
       company: 'LTM Limited (formerly LTIMindtree), Pune',
-      position: 'Senior Software Engineer - Generative AI Initiative',
+      position: 'Senior Software Engineer - AI-Augmented Development & .NET Architecture',
       duration: 'July 2025 - Present',
-      description: 'Leading enterprise AI modernization work across .NET 8, Azure OpenAI, Semantic Kernel, and RAG-based document processing systems.',
+      description: 'Building production systems faster with AI-augmented development while shipping .NET 8 architecture, agentic CI/CD automation, and semantic search capabilities.',
       highlights: [
-        'Architected .NET 8 microservices replacing legacy application flows, reducing startup time from 8.2s to 1.4s.',
-        'Engineered RAG pipeline using Semantic Kernel and Azure AI Search, processing 10K+ enterprise documents daily with 92% retrieval accuracy.',
-        'Containerized workloads with Docker and improved release cadence from monthly deployments to multiple production releases per week.'
+        'Integrated Amazon Q and Claude into the development workflow, reducing average feature development time by 35% through AI-assisted code generation, documentation, and test writing.',
+        'Built agentic CI/CD pipeline using GitHub Actions and custom orchestration logic, reducing deployment time from 2.5 hours to 18 minutes with automated validation and rollback decisions.',
+        'Established AI-assisted code review practices with Cursor IDE, reducing review cycles from 3 days to 1 day while maintaining 88% test coverage.',
+        'Designed .NET 8 microservices replacing legacy application flows, reducing startup time from 8.2s to 1.4s.',
+        'Built Semantic Kernel and pgvector document classification pipeline processing 10K+ enterprise documents daily with 92% accuracy.'
       ],
-      technologies: ['.NET 8', 'Azure OpenAI', 'Semantic Kernel', 'RAG', 'Azure AI Search', 'Docker']
+      technologies: ['.NET 8', 'Amazon Q', 'Claude', 'Cursor IDE', 'GitHub Actions', 'Semantic Kernel', 'pgvector', 'Docker']
     },
     {
       company: '12th Wonder LLC',
       position: 'Software Engineer',
-      duration: '2022 - 2025',
-      description: 'Built and maintained production full-stack systems using .NET Core, Angular, MSSQL, and PostgreSQL for product and service-based platforms.',
+      duration: 'April 2022 - June 2025',
+      description: 'Built production full-stack systems for automation and digitization platforms using .NET Core, Angular, MSSQL, PostgreSQL, and AI-enhanced delivery practices.',
       highlights: [
-        'Developed RESTful APIs and Angular workflows supporting test lifecycle and B2B lead generation operations.',
-        'Optimized MSSQL and PostgreSQL stored procedures, reducing high-volume query latency across reporting and retrieval flows.',
-        'Implemented file handling and API integration layers for document-heavy enterprise workflows.'
+        'Accelerated feature velocity with GitHub Copilot for boilerplate generation and Claude for architectural problem-solving, reducing average PR cycle time by 45%.',
+        'Automated test generation using AI tools, increasing unit test coverage from 62% to 88% in 3 months and reducing production bugs by 35%.',
+        'Delivered 12 major features for a B2B lead generation platform using .NET Core, Entity Framework, Angular 14+, and PostgreSQL while maintaining 99.2% uptime.',
+        'Improved data query performance by 60% through indexing, stored procedure optimization, and pgvector integration for semantic search.',
+        'Built metadata-driven payload mapping for 8+ third-party data sources with 99.8% request success rate.'
       ],
-      technologies: ['.NET Core', 'Angular', 'PostgreSQL', 'MSSQL', 'REST APIs', 'Entity Framework']
+      technologies: ['.NET Core', 'Angular 14+', 'PostgreSQL', 'MSSQL', 'pgvector', 'GitHub Copilot', 'Claude', 'Entity Framework']
     }
   ];
 
@@ -104,41 +119,47 @@ export class PortfolioComponent implements OnInit {
       highlights: [
         'Architected API layer for product test lifecycle management serving 200+ QA engineers.',
         'Optimized MSSQL stored procedures reducing query latency by 45% from 1.8s to 1.0s.',
-        'Designed reporting pipeline processing 5K+ test runs per day.'
+        'Designed reporting pipeline processing 5K+ test runs per day.',
+        'Used Amazon Q to accelerate unit test generation, compressing test automation work from 2 weeks to 4 days.',
+        'Reduced bug report resolution time by 3 days through intelligent categorization logic.'
       ],
-      impact: 'Shipped v2.0 on time with 99.1% API uptime across a 3-month release cycle.',
-      technologies: ['.NET Web API', 'C#', 'MSSQL', 'Stored Procedures', 'Reporting']
+      impact: 'Shipped v2.0 on time with 99.1% API uptime and improved QA team productivity by 40%.',
+      technologies: ['.NET Web API', 'C#', 'MSSQL', 'GitHub Actions', 'Amazon Q', 'Stored Procedures']
     },
     {
       title: 'TechConnectr',
       description: 'B2B lead generation orchestration platform with document ingestion, payload mapping, and semantic retrieval workflows.',
       highlights: [
         'Implemented file processing layer handling 50K+ documents per month across PDF, DOCX, and CSV inputs.',
+        'Used Claude to shape the document embedding strategy and GitHub Copilot to accelerate parsing logic development.',
         'Optimized PostgreSQL queries reducing lead retrieval time by 60% from 2.1s to 0.9s.',
-        'Created intelligent payload mapping that reduced integration errors from 12% to 1.3%.'
+        'Created intelligent payload mapping that reduced integration errors from 12% to 1.3%.',
+        'Built agentic validation flow with custom orchestration logic and AI-generated test cases.'
       ],
       impact: 'Enabled sales teams to onboard 3 new lead sources in Q2 and support ARR growth.',
-      technologies: ['.NET Core MVC', 'PostgreSQL', 'Document Processing', 'API Integration', 'Semantic Search']
+      technologies: ['.NET Core MVC', 'PostgreSQL', 'pgvector', 'Claude', 'GitHub Copilot', 'Docker', 'GitHub Actions']
     },
     {
-      title: 'AI Document Processing System',
-      description: 'Enterprise RAG system integrating Azure OpenAI, Semantic Kernel, vector search, and .NET services.',
+      title: 'Agentic CI/CD Automation',
+      description: 'Deployment orchestration workflow using GitHub Actions and custom validation logic for faster, safer production releases.',
       highlights: [
-        'Designed retrieval pipeline for 10K+ enterprise documents processed daily.',
-        'Improved answer relevance against keyword search baselines through semantic indexing.',
-        'Integrated prompt orchestration, vector retrieval, and service APIs into production workflows.'
+        'Automated deployment validation, health checks, and rollback decisions to remove manual release gates.',
+        'Reduced deployment time from 2.5 hours to 18 minutes across production release workflows.',
+        'Documented the workflow with AI-assisted runbooks and generated regression test cases.'
       ],
-      impact: 'Delivered 92% retrieval accuracy for enterprise knowledge workflows.',
-      technologies: ['Azure OpenAI', 'Semantic Kernel', 'RAG', 'Azure AI Search', '.NET 8']
+      impact: 'Improved release speed by 86% while keeping deployment decisions observable and repeatable.',
+      technologies: ['GitHub Actions', 'Agentic Workflows', '.NET 8', 'Docker', 'Claude', 'Amazon Q']
     }
   ];
 
   certifications = [
-    'Azure AI Engineer Associate (AI-102) - Exam scheduled Q3 2026',
     'Microsoft Certified: Azure Developer Associate (AZ-204) - 2024',
     'Microsoft Certified: Azure Fundamentals (AZ-900) - 2023',
-    'Angular 14+ - Complete course plus 3 production projects',
-    'C# Advanced Patterns - Applied through production .NET development'
+    'GitHub Copilot Workshop - GitHub Skills, 2024',
+    'Prompt Engineering for Code Generation - Udemy, 2024',
+    'Advanced .NET 8 Patterns & Async Design - Pluralsight, 2025',
+    'Azure AI Engineer Associate (AI-102) - Exam scheduled Q3 2026',
+    'Agentic AI Workflows & Orchestration - Custom project-based learning'
   ];
 
   education: Education[] = [
