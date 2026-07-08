@@ -53,7 +53,7 @@
 
         <!-- Contact Form -->
         <div class="contact-form-wrapper">
-          <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <form id="form" class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
             <h2>Send Me a Message</h2>
             
             <div class="form-group">
@@ -104,10 +104,17 @@
               ></textarea>
             </div>
 
-            <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid">
-              <span>Send Message</span>
-              <i class="fas fa-paper-plane"></i>
-            </button>
+            <div class="form-actions">
+              <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid || submitting">
+                <span *ngIf="!submitting">Send Message</span>
+                <span *ngIf="submitting">Sending…</span>
+                <i class="fas fa-paper-plane"></i>
+              </button>
+              <div class="form-status">
+                <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+                <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+              </div>
+            </div>
           </form>
         </div>
 

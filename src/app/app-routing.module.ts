@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ContactComponent } from './contact/contact.component';
+import { BlogComponent } from './blog/blog.component';
+import { BlogPostComponent } from './blog/blog-post.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,30 @@ const routes: Routes = [
         description: 'Explore Chetan Deore portfolio projects and experience across .NET 8, Amazon Q, GitHub Copilot, Cursor, Claude, agentic CI/CD, Angular, PostgreSQL, MSSQL, pgvector, Docker, and enterprise APIs.',
         keywords: 'Chetan Deore projects, .NET 8 portfolio, AI augmented development portfolio, Amazon Q projects, GitHub Copilot, Cursor IDE, Claude, agentic workflows, Angular portfolio, PostgreSQL optimization, pgvector',
         url: '/portfolio'
+      }
+    }
+  },
+  {
+    path: 'blog',
+    component: BlogComponent,
+    data: {
+      seo: {
+        title: 'Blog | Chetan Deore | .NET, Angular, AI-Augmented Engineering',
+        description: 'Read Chetan Deore blog posts about .NET, Angular, AI-assisted development, agentic workflows, cloud delivery, CI/CD, and practical engineering lessons.',
+        keywords: 'Chetan Deore blog, .NET blog, Angular blog, AI-assisted development, agentic workflows, CI/CD, software engineering articles',
+        url: '/blog'
+      }
+    }
+  },
+  {
+    path: 'blog/:slug',
+    component: BlogPostComponent,
+    data: {
+      seo: {
+        title: 'Blog Post | Chetan Deore',
+        description: 'Read software engineering notes from Chetan Deore.',
+        keywords: 'Chetan Deore blog, software engineering',
+        url: '/blog'
       }
     }
   },
