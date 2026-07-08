@@ -13,6 +13,42 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://chetandeo.in/blog</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://chetandeo.in/blog/ai-assisted-delivery-without-losing-engineering-judgment</loc>
+    <lastmod>2026-06-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chetandeo.in/blog/building-json-powered-blog-for-static-angular-site</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chetandeo.in/blog/how-i-structure-dotnet-web-api-projects-that-survive-change</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chetandeo.in/blog/entity-framework-core-performance-lessons-from-real-apis</loc>
+    <lastmod>2026-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://chetandeo.in/blog/background-jobs-in-dotnet-when-not-to-use-the-request-thread</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://chetandeo.in/contact</loc>
     <lastmod>2026-06-24</lastmod>
     <changefreq>monthly</changefreq>

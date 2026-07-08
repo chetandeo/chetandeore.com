@@ -1,0 +1,259 @@
+[
+  {
+    "slug": "ai-assisted-delivery-without-losing-engineering-judgment",
+    "title": "AI-Assisted Delivery Without Losing Engineering Judgment",
+    "subtitle": "A practical workflow for using coding assistants while keeping architecture, review, and ownership human-led.",
+    "excerpt": "AI tools are most useful when they remove repeated work and expose options. They still need a senior engineer's judgment around boundaries, tests, observability, and release risk.",
+    "author": "Chetan Deore",
+    "publishedAt": "2026-06-24",
+    "readingMinutes": 5,
+    "tags": ["AI Tools", ".NET", "Code Review", "Delivery"],
+    "featured": true,
+    "coverImage": "assets/blog-covers/dotnet-web-api-architecture.png",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "The best use of AI in software delivery is not to outsource thinking. It is to compress the slow parts around scaffolding, test setup, documentation drafts, and first-pass refactoring so the engineer can spend more time on the decisions that actually shape the system."
+      },
+      {
+        "type": "heading",
+        "text": "Start with the boundary"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before asking a tool for code, I write down the behavior, inputs, outputs, failure modes, and the module boundary. This makes the generated work easier to review because there is a concrete contract to compare against."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Use AI to draft boring structure, not to choose hidden architecture.",
+          "Ask for tests early so the expected behavior becomes visible.",
+          "Review generated code with the same suspicion as any pull request.",
+          "Keep release decisions based on telemetry, health checks, and rollback plans."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Where the speed comes from"
+      },
+      {
+        "type": "paragraph",
+        "text": "Most delivery speed comes from reducing switching cost. A good assistant can help generate DTOs, arrange test cases, summarize a diff, and explain unfamiliar APIs. The engineer still decides whether the result fits the product and the codebase."
+      }
+    ]
+  },
+  {
+    "slug": "building-json-powered-blog-for-static-angular-site",
+    "title": "Building a JSON-Powered Blog for a Static Angular Site",
+    "subtitle": "A lightweight content model that behaves like a blog platform without adding a backend.",
+    "excerpt": "For a personal site, a JSON-backed blog is often enough. The pipeline can publish content as data, Angular can render it, and hosting stays simple.",
+    "author": "Chetan Deore",
+    "publishedAt": "2026-06-20",
+    "readingMinutes": 4,
+    "tags": ["Angular", "Static Site", "JSON", "CI/CD"],
+    "featured": false,
+    "coverImage": "assets/blog-covers/static-angular-site.png",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "A blog does not always need a CMS, database, editor service, or admin panel. If content is reviewed in Git and deployed through a pipeline, a static JSON file gives enough structure for a fast personal publishing flow."
+      },
+      {
+        "type": "heading",
+        "text": "The content contract"
+      },
+      {
+        "type": "paragraph",
+        "text": "Each post needs a stable slug, title, excerpt, publish date, reading time, tags, and content blocks. Content blocks keep rendering safe because the app does not need to inject raw HTML."
+      },
+      {
+        "type": "list",
+        "items": [
+          "The pipeline updates assets/blog-posts.json.",
+          "Angular fetches the file at runtime.",
+          "Routes use the post slug for shareable article URLs.",
+          "SEO metadata is updated when the article loads."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Why it stays lightweight"
+      },
+      {
+        "type": "paragraph",
+        "text": "There is no server state to maintain and no content API to secure. The same deployment that publishes the Angular app can publish the updated JSON file, which keeps operations simple."
+      }
+    ]
+  },
+  {
+    "slug": "how-i-structure-dotnet-web-api-projects-that-survive-change",
+    "title": "How I Structure .NET Web API Projects That Survive Change",
+    "subtitle": "The folder structure matters less than the boundaries, but the right structure makes those boundaries easier to protect.",
+    "excerpt": "A practical way to arrange .NET Web API code so controllers stay thin, business rules have a home, and future changes do not turn every feature into a small migration project.",
+    "author": "Chetan Deore",
+    "publishedAt": "2026-07-02",
+    "readingMinutes": 6,
+    "tags": [".NET", "ASP.NET Core", "Architecture", "Web API"],
+    "featured": true,
+    "coverImage": "assets/blog-covers/dotnet-web-api-architecture.png",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Whenever a .NET API starts small, it is tempting to keep everything close to the controller. It feels fast in the first week. Then the second module arrives, validation becomes conditional, one endpoint needs a different persistence rule, and suddenly the controller is doing work it was never meant to own."
+      },
+      {
+        "type": "paragraph",
+        "text": "I do not think every project needs a heavy architecture. I do think every production API needs a clear answer to a simple question: where does this decision belong?"
+      },
+      {
+        "type": "heading",
+        "text": "Keep controllers boring"
+      },
+      {
+        "type": "paragraph",
+        "text": "A good controller should mostly translate HTTP into application intent. It receives a request, lets model binding do its job, calls the use case or service, and returns the response. Once a controller starts checking business rules, composing database queries, or deciding workflow steps, it becomes harder to test and harder to reuse."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Controllers should handle routing, request shape, status codes, and authentication context.",
+          "Application services should handle the actual use case and transaction boundary.",
+          "Domain or business services should hold rules that are not specific to HTTP.",
+          "Repositories or data services should hide query details, not business intent."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Name by behavior, not by pattern"
+      },
+      {
+        "type": "paragraph",
+        "text": "I prefer names that explain the work being done. A class named CreateInvoiceHandler is easier to understand than InvoiceManager. A method named MarkPaymentAsFailedAsync carries more meaning than UpdateStatusAsync. Small naming choices make code reviews faster because the reviewer does not have to reverse-engineer the intent."
+      },
+      {
+        "type": "heading",
+        "text": "Do not hide every detail behind abstraction"
+      },
+      {
+        "type": "paragraph",
+        "text": "Abstraction is useful when it protects the rest of the app from change. It is less useful when it only wraps Entity Framework with the same method names. If the database query is specific and unlikely to change, a focused query method can be clearer than a generic repository that pretends all data access is the same."
+      },
+      {
+        "type": "paragraph",
+        "text": "The structure I trust most is the one where a new developer can follow one request from route to response without opening ten unrelated files. That is usually the sign that the project is structured for maintenance, not just for diagrams."
+      }
+    ]
+  },
+  {
+    "slug": "entity-framework-core-performance-lessons-from-real-apis",
+    "title": "Entity Framework Core Performance Lessons from Real APIs",
+    "subtitle": "Most EF Core performance wins come from reading the query you actually sent to the database.",
+    "excerpt": "A grounded look at common EF Core performance issues: over-fetching, missing indexes, tracking queries, chatty calls, and why measuring beats guessing every time.",
+    "author": "Chetan Deore",
+    "publishedAt": "2026-06-28",
+    "readingMinutes": 7,
+    "tags": [".NET", "Entity Framework Core", "Performance", "SQL"],
+    "featured": false,
+    "coverImage": "assets/blog-covers/ef-core-performance.png",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Entity Framework Core is not slow by default. It becomes slow when I forget that a LINQ expression is not the final work. The final work is the SQL query, the execution plan, the number of rows, the indexes available, and the amount of data brought back into memory."
+      },
+      {
+        "type": "heading",
+        "text": "First, look at the SQL"
+      },
+      {
+        "type": "paragraph",
+        "text": "The quickest way to stop guessing is to inspect the SQL generated by EF Core. A query that looks innocent in C# may contain unnecessary joins, load too many columns, or run once per item inside a loop. Once the generated SQL is visible, the problem usually becomes less mysterious."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Use projections when an endpoint only needs a few fields.",
+          "Use AsNoTracking for read-only queries.",
+          "Watch for N+1 queries when mapping nested data.",
+          "Keep pagination close to the database, not in memory.",
+          "Check indexes for the filters and sort order your API actually uses."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Projection is underrated"
+      },
+      {
+        "type": "paragraph",
+        "text": "Many APIs return DTOs but still load full entities first. That is convenient, but it can quietly waste memory and network time. Projecting directly into a response model keeps the query honest. It also makes it obvious which fields the endpoint depends on."
+      },
+      {
+        "type": "heading",
+        "text": "Tracking has a cost"
+      },
+      {
+        "type": "paragraph",
+        "text": "Tracking is valuable when an entity will be updated in the same context. For read-only screens, dashboards, exports, and lookup endpoints, tracking often adds work without helping the request. AsNoTracking is a small change, but across high-traffic APIs it can matter."
+      },
+      {
+        "type": "paragraph",
+        "text": "My rule is simple: measure the endpoint, inspect the SQL, change one thing, then measure again. Performance work gets messy when too many fixes are applied at once and nobody knows which change actually helped."
+      }
+    ]
+  },
+  {
+    "slug": "background-jobs-in-dotnet-when-not-to-use-the-request-thread",
+    "title": "Background Jobs in .NET: When Not to Use the Request Thread",
+    "subtitle": "Some work starts from an API call but does not belong inside the API call.",
+    "excerpt": "A practical note on moving email, imports, reports, retries, and long-running workflows out of request-response paths in .NET applications.",
+    "author": "Chetan Deore",
+    "publishedAt": "2026-06-25",
+    "readingMinutes": 5,
+    "tags": [".NET", "Background Jobs", "Queues", "Reliability"],
+    "featured": false,
+    "coverImage": "assets/blog-covers/dotnet-background-jobs.png",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "A request thread is a bad place to do work that the user does not need immediately. I have seen APIs feel slow not because the core action was expensive, but because the endpoint also sent emails, generated files, called third-party services, and waited for everything to finish."
+      },
+      {
+        "type": "heading",
+        "text": "Start with the user expectation"
+      },
+      {
+        "type": "paragraph",
+        "text": "If the user needs the result right now, keep it in the request and make it fast. If the user only needs confirmation that the work was accepted, move it to a background flow. This one decision can make an application feel much more responsive."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Send emails after the main transaction succeeds.",
+          "Process large imports outside the request path.",
+          "Generate reports asynchronously and notify the user when ready.",
+          "Retry unreliable third-party calls from a queue.",
+          "Store job status so support teams can see what happened."
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Reliability is more than running later"
+      },
+      {
+        "type": "paragraph",
+        "text": "Moving work to the background is only useful if the job can be observed and retried. A fire-and-forget task inside an API process can disappear during a restart. A proper queue, durable store, or background job framework gives the work a lifecycle."
+      },
+      {
+        "type": "heading",
+        "text": "Design jobs to be repeatable"
+      },
+      {
+        "type": "paragraph",
+        "text": "Background jobs should usually be idempotent. If the same job runs twice because of a retry, it should not create duplicate invoices, send five emails, or corrupt status. This is where unique keys, status checks, and careful transaction boundaries save a lot of pain."
+      },
+      {
+        "type": "paragraph",
+        "text": "The goal is not to make everything asynchronous. The goal is to keep the request path focused on what must happen now, and give slower work a place where it can be retried, monitored, and fixed without hurting the user experience."
+      }
+    ]
+  }
+]

@@ -37,6 +37,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       if (seo) {
         this.seoService.update(seo);
       }
+      // Close mobile menu on navigation
+      this.hamMenuClass = false;
     });
   }
 
