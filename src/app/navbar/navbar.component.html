@@ -1,30 +1,21 @@
-<nav class="navbar">
-  <div class="nav-container">
-    <div class="logo">
-      <img src="..\assets\logo.png" alt="Logo" />
-      <h3>
-        <span>
-            <div class='console-container'><span id='text'></span>
-                <div class='console-underscore' id='console'>&#95;</div>
-            </div>
-        </span>
-        
-      </h3>
+<header class="header-wrap">
+  <div class="header">
+    <a class="brand" routerLink="/" (click)="setHamMenuClass()">Chetan<span>.</span></a>
+
+    <button class="menu-btn" type="button" aria-label="Toggle navigation" (click)="toggleHamMenu()">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="links" [class.open]="hamMenuOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+            (click)="setHamMenuClass()">Home</a></li>
+        <li><a routerLink="/portfolio" routerLinkActive="active" (click)="setHamMenuClass()">Portfolio</a></li>
+        <li><a routerLink="/blog" routerLinkActive="active" (click)="setHamMenuClass()">Blog</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="setHamMenuClass()">Contact</a></li>
+      </ul>
     </div>
-    
-    <div class="nav-links" [class.active]="mobileMenuOpen">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a>
-      <a routerLink="/portfolio" routerLinkActive="active" (click)="closeMobileMenu()">Portfolio</a>
-      <a routerLink="/blog" routerLinkActive="active" (click)="closeMobileMenu()">Blog</a>
-      <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
-    </div>
-    
-    <div class="hamburger" (click)="toggleMobileMenu()" [class.active]="mobileMenuOpen">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+
+    <a class="resume-btn" href="assets/Chetan-Deore-Resume.pdf" target="_blank">Resume ↗</a>
   </div>
-  
-</nav>
-  
+</header>

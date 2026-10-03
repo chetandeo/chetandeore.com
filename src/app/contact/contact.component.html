@@ -1,135 +1,144 @@
-<div class="contact-container">
-  <!-- Header Section -->
-  <section class="contact-header">
-    <div class="container">
-      <h1 class="section-title">Get In Touch</h1>
-      <p class="section-subtitle">Senior .NET, Azure, Angular, and AI-augmented engineering opportunities</p>
-    </div>
-  </section>
+<section class="contact-page page-pad">
+  <div class="contact-grid">
+    <!-- Left Column: Direct Reachout & Details -->
+    <div class="contact-info-panel">
+      <div class="section-eyebrow">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>GET IN TOUCH</span>
+      </div>
 
-  <!-- Main Contact Section -->
-  <section class="contact-content">
-    <div class="container">
-      <div class="contact-grid">
-        
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <h2>Contact Information</h2>
-          <p class="info-description">
-            Reach out for senior software engineering roles, AI-augmented delivery workflows,
-            Azure integrations, agentic CI/CD automation, or full-stack .NET product development.
-          </p>
+      <h1 class="contact-title">
+        Let's build something <span>impactful together</span>.
+      </h1>
 
-          <div class="info-cards">
-            <div class="info-card" *ngFor="let info of contactInfo">
-              <div class="info-icon">
-                <i [class]="info.icon"></i>
-              </div>
-              <div class="info-details">
-                <h3>{{ info.title }}</h3>
-                <a *ngIf="info.link" [href]="info.link" target="_blank" rel="noopener noreferrer">
-                  {{ info.value }}
-                </a>
-                <p *ngIf="!info.link">{{ info.value }}</p>
-              </div>
-            </div>
+      <p class="contact-lead">
+        I'm actively considering Senior Software Engineer roles, high-scale .NET 8 architecture opportunities, and Generative AI / RAG consulting engagements.
+      </p>
+
+      <!-- Quick Action Buttons -->
+      <div class="quick-action-strip">
+        <a class="btn primary" href="mailto:cdeore20@gmail.com?subject=Senior%20Engineering%20Opportunity">
+          <i class="fa-solid fa-envelope"></i> Email: cdeore20@gmail.com
+        </a>
+        <button class="btn secondary copy-btn" (click)="copyEmail()" type="button">
+          <i class="fa-solid" [class.fa-check]="emailCopied" [class.fa-copy]="!emailCopied"></i>
+          <span>{{ emailCopied ? 'Copied to Clipboard!' : 'Copy Email' }}</span>
+        </button>
+        <a class="btn tertiary" href="assets/Chetan-Deore-Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf"></i> Download Resume PDF
+        </a>
+      </div>
+
+      <!-- Contact Info Cards -->
+      <div class="contact-channels-list">
+        <div class="channel-card glass-card" *ngFor="let item of contactInfo">
+          <div class="channel-icon">
+            <i [class]="item.icon"></i>
           </div>
-
-          <div class="social-links">
-            <h3>Follow Me</h3>
-            <div class="social-icons">
-              <a href="https://www.linkedin.com/in/cdeore/" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-              </a>
-              <a href="https://github.com/chetandeo" target="_blank" class="social-icon">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="https://twitter.com/cdeore" target="_blank" class="social-icon">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </div>
+          <div class="channel-text">
+            <small>{{ item.title }}</small>
+            <strong>{{ item.value }}</strong>
           </div>
+          <a *ngIf="item.link" [href]="item.link" target="_blank" rel="noopener noreferrer" class="channel-action">
+            {{ item.actionText }}
+          </a>
         </div>
-
-        <!-- Contact Form -->
-        <div class="contact-form-wrapper">
-          <form id="form" class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
-            <h2>Send Me a Message</h2>
-            
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                [(ngModel)]="formData.name"
-                placeholder="John Doe"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                [(ngModel)]="formData.email"
-                placeholder="john@example.com"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input 
-                type="text" 
-                id="subject" 
-                name="subject" 
-                [(ngModel)]="formData.subject"
-                placeholder="Project Inquiry"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                [(ngModel)]="formData.message"
-                rows="6"
-                placeholder="Tell me about your project..."
-                required
-              ></textarea>
-            </div>
-
-            <div class="form-actions">
-              <button type="submit" class="submit-btn" [disabled]="!contactForm.form.valid || submitting">
-                <span *ngIf="!submitting">Send Message</span>
-                <span *ngIf="submitting">Sending…</span>
-                <i class="fas fa-paper-plane"></i>
-              </button>
-              <div class="form-status">
-                <p class="success" *ngIf="successMessage">{{ successMessage }}</p>
-                <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
-              </div>
-            </div>
-          </form>
-        </div>
-
       </div>
     </div>
-  </section>
 
-  <!-- Additional Info Section -->
-  <section class="availability-section">
-    <div class="container">
-      <div class="availability-card">
-        <i class="fas fa-briefcase"></i>
-        <h3>Available for Opportunities</h3>
-        <p>Currently open to senior engineering opportunities focused on .NET, Azure, Angular, AI developer tools, and agentic workflows.</p>
+    <!-- Right Column: Interactive Message Form & Quick Snapshot -->
+    <div class="contact-form-panel">
+      <div class="form-container glass-card">
+        <div class="form-header">
+          <h3>Send a Direct Message</h3>
+          <p>Whether you have an open role, an architecture inquiry, or a project, drop a note below.</p>
+        </div>
+
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="formData.name" 
+              required 
+              placeholder="e.g. Alex Morgan"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Work Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              [(ngModel)]="formData.email" 
+              required 
+              placeholder="e.g. alex@company.com"
+              autocomplete="email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject / Role</label>
+            <input 
+              type="text" 
+              id="subject" 
+              name="subject" 
+              [(ngModel)]="formData.subject" 
+              required 
+              placeholder="e.g. Senior .NET Engineer / AI Architecture"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              [(ngModel)]="formData.message" 
+              rows="4" 
+              required 
+              placeholder="Share details regarding your team, technology stack, and timeline..."
+            ></textarea>
+          </div>
+
+          <div class="alert-success" *ngIf="successMessage">
+            <i class="fa-solid fa-circle-check"></i> {{ successMessage }}
+          </div>
+
+          <div class="alert-error" *ngIf="errorMessage">
+            <i class="fa-solid fa-circle-exclamation"></i> {{ errorMessage }}
+          </div>
+
+          <button class="btn primary submit-btn" type="submit" [disabled]="submitting">
+            <span *ngIf="!submitting">
+              <i class="fa-solid fa-paper-plane"></i> Send Message →
+            </span>
+            <span *ngIf="submitting">
+              <i class="fa-solid fa-spinner fa-spin"></i> Sending...
+            </span>
+          </button>
+        </form>
+
+        <!-- Quick Recruiter Snapshot -->
+        <div class="recruiter-quick-specs">
+          <div class="spec-item">
+            <span>Availability:</span>
+            <strong>Open to Offers / Consulting</strong>
+          </div>
+          <div class="spec-item">
+            <span>Work Model:</span>
+            <strong>Remote / Hybrid / Relocation</strong>
+          </div>
+          <div class="spec-item">
+            <span>Preferred Roles:</span>
+            <strong>Senior .NET Engineer / AI Full Stack</strong>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
