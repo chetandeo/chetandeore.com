@@ -6,14 +6,8 @@ import { AfterViewInit, Component } from "@angular/core";
     styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent{
-    mobileMenuOpen = false;
-
-    toggleMobileMenu() {
-        this.mobileMenuOpen = !this.mobileMenuOpen;
-    }
-
-    closeMobileMenu() {
-        this.mobileMenuOpen = false;
-    }
+    hamMenuOpen = false;
+  setHamMenuClass(): void { this.hamMenuOpen = false; }
+  toggleHamMenu(): void { this.hamMenuOpen = !this.hamMenuOpen; }
 
 }

@@ -1,136 +1,124 @@
-<div class="portfolio-container">
-  <!-- Header Section -->
-  <section class="portfolio-header">
-    <div class="container">
-      <h1 class="section-title">Senior Software Engineer</h1>
-      <p class="section-subtitle">.NET 8+ Full Stack | AI-Augmented Development | Agentic Workflows</p>
+<section class="page-pad portfolio-hero">
+  <div class="hero-top-row">
+    <div class="section-eyebrow">
+      <i class="fa-solid fa-briefcase"></i>
+      <span>PRODUCTION WORK & CASE STUDIES</span>
     </div>
-  </section>
+    <a href="assets/Chetan-Deore-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn secondary resume-quick-btn">
+      <i class="fa-solid fa-file-pdf"></i> Download Resume PDF
+    </a>
+  </div>
 
-  <!-- About Section -->
-  <section class="about-section">
-    <div class="container">
-      <h2 class="section-heading">About Me</h2>
-      <div class="about-content">
-        <p>
-          I ship production .NET 8 systems faster using AI-augmented development with Amazon Q,
-          GitHub Copilot, Cursor, Claude, and ChatGPT. My work spans full-stack business platforms,
-          agentic CI/CD automation, semantic document workflows, and cloud-ready APIs handling
-          high-volume transactions with measurable uptime, quality, and delivery impact.
-        </p>
-      </div>
-    </div>
-  </section>
+  <h1 class="portfolio-title">
+    Systems engineered for <span>scale, velocity & reliability</span>.
+  </h1>
 
-  <!-- Impact Section -->
-  <section class="impact-section">
-    <div class="container">
-      <h2 class="section-heading">Impact at a Glance</h2>
-      <div class="impact-grid">
-        <div class="impact-card" *ngFor="let metric of impactMetrics">
-          <span>{{ metric }}</span>
+  <p class="portfolio-lead">
+    Here are three landmark production initiatives showcasing real architectural challenges, technical decisions, and verified business ROI.
+  </p>
+
+  <!-- Filter Pills -->
+  <div class="filter-bar">
+    <button 
+      *ngFor="let f of filters" 
+      class="filter-btn" 
+      [class.active]="selectedFilter === f.id"
+      (click)="setFilter(f.id)"
+      type="button">
+      {{ f.label }}
+    </button>
+  </div>
+</section>
+
+<!-- Projects List -->
+<section class="page-pad projects-section">
+  <div class="projects-container">
+    <article 
+      class="project-detail-card glass-card" 
+      *ngFor="let p of filteredProjects"
+      [ngClass]="p.theme">
+      
+      <!-- Card Header -->
+      <div class="card-head">
+        <div class="meta-row">
+          <span class="category-badge">{{ p.categoryLabel }}</span>
+          <span class="scale-badge"><i class="fa-solid fa-gauge-high"></i> {{ p.scale }}</span>
+        </div>
+        <h2 class="project-heading">{{ p.title }}</h2>
+        <p class="project-tagline">{{ p.tagline }}</p>
+
+        <!-- Tech Pills -->
+        <div class="stack-list">
+          <span class="stack-tag" *ngFor="let tech of p.technologies">{{ tech }}</span>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Skills Section -->
-  <section class="skills-section">
-    <div class="container">
-      <h2 class="section-heading">Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-item" *ngFor="let group of skills">
-          <div class="skill-name">{{ group.title }}</div>
-          <p class="skill-subtitle">{{ group.subtitle }}</p>
-          <div class="skill-tags">
-            <span *ngFor="let skill of group.skills">{{ skill }}</span>
+      <!-- Deep Dive Grid -->
+      <div class="deep-dive-grid">
+        <!-- Left: Problem & Solution -->
+        <div class="details-left">
+          <div class="detail-block">
+            <h3><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h3>
+            <p>{{ p.problem }}</p>
+          </div>
+
+          <div class="detail-block">
+            <h3><i class="fa-solid fa-network-wired"></i> Architecture & Approach</h3>
+            <p>{{ p.architecture }}</p>
+          </div>
+
+          <div class="detail-block">
+            <h3><i class="fa-solid fa-circle-check"></i> Key Implementation Highlights</h3>
+            <ul class="solution-points">
+              <li *ngFor="let s of p.solution">{{ s }}</li>
+            </ul>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Experience Section -->
-  <section class="experience-section">
-    <div class="container">
-      <h2 class="section-heading">Professional Experience</h2>
-      <div class="experience-timeline">
-        <div class="experience-item" *ngFor="let exp of experiences">
-          <div class="experience-card">
-            <h3 class="experience-position">{{ exp.position }}</h3>
-            <h4 class="experience-company">{{ exp.company }}</h4>
-            <p class="experience-duration">{{ exp.duration }}</p>
-            <p class="experience-description">{{ exp.description }}</p>
-            <ul class="experience-highlights">
-              <li *ngFor="let highlight of exp.highlights">{{ highlight }}</li>
-            </ul>
-            <div class="experience-technologies">
-              <span class="tech-tag" *ngFor="let tech of exp.technologies">{{ tech }}</span>
+        <!-- Right: Quantified Outcomes -->
+        <div class="details-right">
+          <div class="outcomes-panel">
+            <div class="panel-title">
+              <i class="fa-solid fa-chart-simple"></i>
+              <span>Verified Impact</span>
+            </div>
+
+            <div class="metrics-stack">
+              <div class="impact-metric-row" *ngFor="let m of p.metrics">
+                <div class="impact-value">{{ m.value }}</div>
+                <div class="impact-info">
+                  <strong>{{ m.label }}</strong>
+                  <small>{{ m.detail }}</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </article>
+  </div>
+</section>
 
-  <!-- Projects Section -->
-  <section class="projects-section">
-    <div class="container">
-      <h2 class="section-heading">Featured Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card" *ngFor="let project of projects">
-          <div class="project-content">
-            <h3 class="project-title">{{ project.title }}</h3>
-            <p class="project-description">{{ project.description }}</p>
-            <ul class="project-highlights">
-              <li *ngFor="let highlight of project.highlights">{{ highlight }}</li>
-            </ul>
-            <p class="project-impact">{{ project.impact }}</p>
-            <div class="project-technologies">
-              <span class="tech-badge" *ngFor="let tech of project.technologies">{{ tech }}</span>
-            </div>
-            <a *ngIf="project.link && project.link !== '#'" [href]="project.link" class="project-link" target="_blank">
-              View Project →
-            </a>
-          </div>
-        </div>
+<!-- Recruiter CTA Footer -->
+<section class="page-pad cta-section">
+  <div class="cta-box glass-card">
+    <div class="cta-inner">
+      <div class="section-eyebrow">
+        <i class="fa-solid fa-comments"></i>
+        <span>INTERESTED IN COLLABORATING?</span>
+      </div>
+      <h2>Have a complex engineering challenge?</h2>
+      <p>
+        I'm available for Senior .NET roles, full-stack architecture positions, and Generative AI/RAG consulting engagements.
+      </p>
+      <div class="cta-btn-group">
+        <a routerLink="/contact" class="btn primary">
+          <i class="fa-solid fa-paper-plane"></i> Discuss an Opportunity
+        </a>
+        <a href="mailto:cdeore20@gmail.com" class="btn secondary">
+          <i class="fa-solid fa-envelope"></i> Email: cdeore20@gmail.com
+        </a>
       </div>
     </div>
-  </section>
-
-  <!-- Certifications Section -->
-  <section class="certifications-section">
-    <div class="container">
-      <h2 class="section-heading">Certifications & Learning</h2>
-      <div class="certifications-list">
-        <div class="certification-item" *ngFor="let cert of certifications">
-          <i class="fas fa-certificate"></i>
-          <span>{{ cert }}</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section class="education-section">
-    <div class="container">
-      <h2 class="section-heading">Education</h2>
-      <div class="education-list">
-        <div class="education-item" *ngFor="let item of education">
-          <h3>{{ item.degree }}</h3>
-          <p>{{ item.school }} - {{ item.year }}</p>
-          <span *ngIf="item.details">{{ item.details }}</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Call to Action -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Let's Build Reliable AI-Augmented Software</h2>
-      <p>Open to senior engineering roles focused on .NET, Angular, Azure, AI developer tools, and agentic delivery workflows.</p>
-      <a routerLink="/contact" class="cta-button">Get In Touch</a>
-    </div>
-  </section>
-</div>
+  </div>
+</section>

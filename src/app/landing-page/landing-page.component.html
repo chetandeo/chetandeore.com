@@ -1,25 +1,387 @@
-<div class="showcase-area">
-  <div class="container">
-    <div class="left">
-      <div class="big-title">
-        <h1>Chetan Deore,</h1>
-        <h1>Senior Software Engineer</h1>
+<!-- HERO SECTION -->
+<section class="hero page-pad">
+  <div class="hero-copy">
+    <div class="status-pill">
+      <span class="pulse-dot"></span>
+      <span>Senior Software Engineer · Open to Roles & Consulting · Pune, India</span>
+    </div>
+
+    <h1>
+      Shipping production <span>.NET 8 & AI systems</span> with proven scale.
+    </h1>
+
+    <p class="hero-desc">
+      Senior Software Engineer with <strong>4.6+ years of production experience</strong> building full-stack applications handling 
+      <strong>5M+ transactions/month at 99.2% uptime</strong>. Architect of Semantic Kernel & pgvector RAG pipelines processing 
+      10K+ documents daily, and agentic workflows reducing deployment cycles by 86%.
+    </p>
+
+    <!-- CTAs -->
+    <div class="hero-actions">
+      <a class="btn primary" routerLink="/portfolio">
+        <i class="fa-solid fa-layer-group"></i> Explore Case Studies
+      </a>
+      <a class="btn secondary" href="assets/Chetan-Deore-Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file-arrow-down"></i> Download Resume
+      </a>
+      <button class="btn tertiary copy-email-btn" (click)="copyEmail()" type="button" [attr.aria-label]="emailCopied ? 'Email Copied' : 'Copy Email Address'">
+        <i class="fa-solid" [class.fa-check]="emailCopied" [class.fa-copy]="!emailCopied"></i>
+        <span>{{ emailCopied ? 'Copied to Clipboard!' : 'Copy Email' }}</span>
+      </button>
+    </div>
+
+    <!-- Quick Credentials & Contacts -->
+    <div class="hero-social-strip">
+      <a href="https://linkedin.com/in/cdeore" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn Profile">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>linkedin.com/in/cdeore</span>
+      </a>
+      <a href="https://github.com/chetandeo" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub Profile">
+        <i class="fa-brands fa-github"></i>
+        <span>github.com/chetandeo</span>
+      </a>
+      <a href="mailto:cdeore20@gmail.com" class="social-link" title="Email Chetan">
+        <i class="fa-solid fa-envelope"></i>
+        <span>cdeore20@gmail.com</span>
+      </a>
+      <a href="tel:+919503002981" class="social-link" title="Phone">
+        <i class="fa-solid fa-phone"></i>
+        <span>+91 9503002981</span>
+      </a>
+    </div>
+
+    <!-- Floating Stats Ribbon Below Copy -->
+    <div class="hero-proof-ribbon">
+      <div class="ribbon-item">
+        <strong>5M+</strong>
+        <span>Monthly Txns</span>
       </div>
-      <p class="text">
-        .NET 8+ full-stack engineer shipping production systems faster with Amazon Q,
-        GitHub Copilot, Cursor, Claude, and agentic workflows. I build Angular and .NET
-        platforms, Azure-ready APIs, semantic document pipelines, and automated delivery flows
-        with measurable performance, uptime, and quality impact.
+      <div class="ribbon-divider"></div>
+      <div class="ribbon-item">
+        <strong>99.2%</strong>
+        <span>Prod Uptime</span>
+      </div>
+      <div class="ribbon-divider"></div>
+      <div class="ribbon-item">
+        <strong>86%</strong>
+        <span>Faster CI/CD</span>
+      </div>
+      <div class="ribbon-divider"></div>
+      <div class="ribbon-item">
+        <strong>92%</strong>
+        <span>RAG Accuracy</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO VISUAL: PROFESSIONAL HEADSHOT CARD -->
+  <div class="hero-visual">
+    <div class="visual-glow-backdrop"></div>
+    <div class="visual-frame glass-card">
+      <div class="portrait-container">
+        <img 
+          src="assets/headshot.png" 
+          alt="Chetan Deore - Senior Software Engineer" 
+          class="headshot-img"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+          width="460"
+          height="580"
+        />
+        <div class="portrait-gradient-overlay"></div>
+      </div>
+
+      <!-- Verified Floating Badges on Portrait -->
+      <div class="float-badge float-top-right">
+        <i class="fa-solid fa-bolt"></i>
+        <div>
+          <strong>.NET 8+ Core</strong>
+          <span>Microservices & APIs</span>
+        </div>
+      </div>
+
+      <div class="float-badge float-bottom-left">
+        <i class="fa-solid fa-brain"></i>
+        <div>
+          <strong>Gen AI & RAG</strong>
+          <span>Semantic Kernel + pgvector</span>
+        </div>
+      </div>
+
+      <div class="float-badge float-bottom-right">
+        <i class="fa-brands fa-microsoft"></i>
+        <div>
+          <strong>Azure Certified</strong>
+          <span>Developer Associate (AZ-204)</span>
+        </div>
+      </div>
+
+      <!-- Identity Card Underneath -->
+      <div class="portrait-footer">
+        <div class="engineer-title">
+          <h3>Chetan Deore</h3>
+          <p>Senior Software Engineer @ LTIMindtree</p>
+        </div>
+        <div class="badge-exp">
+          <span>4.6+ Yrs</span>
+          <small>Production</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: QUANTIFIED METRICS GRID -->
+<section class="page-pad section-metrics">
+  <div class="section-header">
+    <div class="section-eyebrow">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>01 · QUANTIFIED BUSINESS IMPACT</span>
+    </div>
+    <h2 class="section-title">Metrics that prove <span>engineering depth</span>.</h2>
+    <p class="section-desc">
+      Hiring managers and technical clients evaluate outcomes, not just lists of buzzwords. Here is what I shipped in production:
+    </p>
+  </div>
+
+  <div class="metrics-grid">
+    <article class="metric-card glass-card" *ngFor="let m of metrics" [ngClass]="m.color">
+      <div class="metric-header">
+        <div class="metric-icon">
+          <i [class]="m.icon"></i>
+        </div>
+        <div class="metric-val">{{ m.value }}</div>
+      </div>
+      <h3>{{ m.label }}</h3>
+      <p>{{ m.detail }}</p>
+    </article>
+  </div>
+
+  <div class="stats-counter-strip glass-card">
+    <div class="stat-col" *ngFor="let s of keyStats">
+      <span class="stat-num">{{ s.num }}</span>
+      <span class="stat-desc">{{ s.desc }}</span>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: FEATURED CASE STUDIES -->
+<section class="page-pad section-projects">
+  <div class="section-header split-header">
+    <div>
+      <div class="section-eyebrow">
+        <i class="fa-solid fa-briefcase"></i>
+        <span>02 · PRODUCTION CASE STUDIES</span>
+      </div>
+      <h2 class="section-title">Engineering work with <span>measurable impact</span>.</h2>
+      <p class="section-desc">
+        Each project highlights real architectural challenges, the technology selected, and the verified outcomes achieved.
       </p>
-      <div class="cta">
-        <a routerLink="/portfolio" class="btn">View My Work</a>
-        <a routerLink="/contact" class="btn btn-secondary">Get In Touch</a>
+    </div>
+    <div class="header-action-btn">
+      <a routerLink="/portfolio" class="btn secondary">
+        View All Case Studies →
+      </a>
+    </div>
+  </div>
+
+  <div class="case-studies-list">
+    <article class="case-card glass-card" *ngFor="let project of featuredProjects" [ngClass]="project.theme">
+      <div class="case-header">
+        <div class="case-tag-row">
+          <span class="case-badge">{{ project.category }}</span>
+        </div>
+        <h3 class="case-title">{{ project.title }}</h3>
+        <p class="case-tagline">{{ project.tagline }}</p>
+
+        <div class="tech-pills">
+          <span class="tech-pill" *ngFor="let tech of project.stack">{{ tech }}</span>
+        </div>
+      </div>
+
+      <div class="case-body-grid">
+        <div class="case-narrative">
+          <div class="narrative-block">
+            <h4><i class="fa-solid fa-triangle-exclamation"></i> The Challenge</h4>
+            <p>{{ project.challenge }}</p>
+          </div>
+          <div class="narrative-block">
+            <h4><i class="fa-solid fa-screwdriver-wrench"></i> The Engineering Solution</h4>
+            <p>{{ project.solution }}</p>
+          </div>
+        </div>
+
+        <div class="case-metrics-box">
+          <div class="box-label">Verified Outcomes</div>
+          <div class="outcomes-grid">
+            <div class="outcome-cell" *ngFor="let item of project.metrics">
+              <span class="outcome-val">{{ item.value }}</span>
+              <span class="outcome-label">{{ item.label }}</span>
+              <small class="outcome-note">{{ item.note }}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 3: TECHNICAL COMPETENCIES & ARCHITECTURE TOOLKIT -->
+<section class="page-pad section-skills">
+  <div class="section-header">
+    <div class="section-eyebrow">
+      <i class="fa-solid fa-cubes"></i>
+      <span>03 · TECHNICAL TOOLKIT & ARCHITECTURE</span>
+    </div>
+    <h2 class="section-title">Built for <span>production reliability & speed</span>.</h2>
+    <p class="section-desc">
+      A battle-tested stack honed across enterprise microservices, cloud deployments, and daily AI-augmented workflows.
+    </p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-category-card glass-card" *ngFor="let group of skillCategories">
+      <div class="card-title-bar">
+        <div class="cat-icon">
+          <i [class]="group.icon"></i>
+        </div>
+        <h3>{{ group.category }}</h3>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag" *ngFor="let s of group.skills">{{ s }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: WORK EXPERIENCE & CAREER TRAJECTORY -->
+<section class="page-pad section-experience">
+  <div class="section-header">
+    <div class="section-eyebrow">
+      <i class="fa-solid fa-timeline"></i>
+      <span>04 · CAREER TRAJECTORY</span>
+    </div>
+    <h2 class="section-title">Continuous track record of <span>impact</span>.</h2>
+    <p class="section-desc">
+      4.6+ years of continuous engineering leadership, full-stack product shipping, and AI initiative execution.
+    </p>
+  </div>
+
+  <div class="timeline">
+    <article class="timeline-item glass-card" *ngFor="let exp of experiences">
+      <div class="timeline-meta">
+        <span class="timeline-period">{{ exp.period }}</span>
+        <span class="timeline-location"><i class="fa-solid fa-location-dot"></i> {{ exp.location }}</span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="exp-title-row">
+          <h3>{{ exp.role }}</h3>
+          <span class="company-name">{{ exp.company }}</span>
+        </div>
+
+        <ul class="exp-highlights">
+          <li *ngFor="let item of exp.highlights">{{ item }}</li>
+        </ul>
+
+        <div class="exp-tags">
+          <span class="exp-tag" *ngFor="let tag of exp.tags">{{ tag }}</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- SECTION 5: CERTIFICATIONS & EDUCATION -->
+<section class="page-pad section-credentials">
+  <div class="credentials-grid">
+    <!-- Certifications Column -->
+    <div class="cred-col">
+      <div class="section-eyebrow">
+        <i class="fa-solid fa-certificate"></i>
+        <span>CERTIFICATIONS & CREDENTIALS</span>
+      </div>
+      <h3 class="cred-title">Verified Expertise</h3>
+      
+      <div class="cert-cards-list">
+        <div class="cert-item glass-card" *ngFor="let cert of certifications">
+          <div class="cert-icon">
+            <i [class]="cert.icon"></i>
+          </div>
+          <div class="cert-info">
+            <h4>{{ cert.title }}</h4>
+            <div class="cert-meta">
+              <span>{{ cert.issuer }}</span>
+              <span class="cert-dot">·</span>
+              <span class="cert-badge-pill">{{ cert.badge }}</span>
+              <span class="cert-dot">·</span>
+              <span>{{ cert.year }}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="right">
-      <img src="../assets/headshot.png" alt="Chetan Deore, Senior Software Engineer specializing in .NET full-stack and AI-augmented development" class="person" />
+    <!-- Education Column -->
+    <div class="cred-col">
+      <div class="section-eyebrow">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>ACADEMIC FOUNDATION</span>
+      </div>
+      <h3 class="cred-title">Computer Science Degrees</h3>
+
+      <div class="edu-cards-list">
+        <div class="edu-item glass-card" *ngFor="let edu of education">
+          <div class="edu-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <div class="edu-info">
+            <h4>{{ edu.degree }}</h4>
+            <div class="edu-school">{{ edu.institution }}</div>
+            <div class="edu-period">{{ edu.period }}</div>
+            <p class="edu-details" *ngIf="edu.details">{{ edu.details }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-      
+</section>
+
+<!-- SECTION 6: HIGH-CONVERSION RECRUITER & CLIENT CTA -->
+<section class="page-pad section-cta">
+  <div class="cta-banner glass-card">
+    <div class="cta-backdrop-glow"></div>
+    <div class="cta-content">
+      <div class="cta-eyebrow">
+        <span class="pulse-dot"></span>
+        <span>LET'S BUILD SOMETHING EXTRAORDINARY</span>
+      </div>
+      <h2>Ready to add a high-velocity engineer to your team?</h2>
+      <p>
+        Whether you are seeking a Senior .NET Engineer, need architecture guidance on RAG and Generative AI, or want to accelerate team delivery velocity—let's connect.
+      </p>
+
+      <div class="cta-actions-row">
+        <a routerLink="/contact" class="btn primary">
+          <i class="fa-solid fa-paper-plane"></i> Get In Touch
+        </a>
+        <a href="assets/Chetan-Deore-Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn secondary">
+          <i class="fa-solid fa-file-pdf"></i> Download Resume PDF
+        </a>
+        <button class="btn tertiary copy-email-btn" (click)="copyEmail()" type="button">
+          <i class="fa-solid" [class.fa-check]="emailCopied" [class.fa-copy]="!emailCopied"></i>
+          <span>{{ emailCopied ? 'cdeore20@gmail.com Copied!' : 'Copy cdeore20@gmail.com' }}</span>
+        </button>
+      </div>
+
+      <div class="cta-direct-contacts">
+        <span><i class="fa-solid fa-phone"></i> +91 9503002981</span>
+        <span class="divider">/</span>
+        <span><i class="fa-solid fa-envelope"></i> cdeore20@gmail.com</span>
+        <span class="divider">/</span>
+        <span><i class="fa-solid fa-location-dot"></i> Pune, Maharashtra, India</span>
+      </div>
+    </div>
+  </div>
+</section>

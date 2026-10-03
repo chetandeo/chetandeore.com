@@ -1,85 +1,139 @@
-<div class="big-wrapper {{storedTheme}}" [class.active]="hamMenuClass">
-  <img src="assets/shape.png" alt="" class="shape" />
+<header class="header-wrap">
+  <div class="header">
+    <a class="brand" routerLink="/" (click)="setHamMenuClass()">
+      <div class="brand-avatar">
+        <img src="assets/headshot.png" alt="Chetan Deore" width="38" height="38">
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Chetan Deore<span class="dot">.</span></span>
+        <span class="brand-role">Senior .NET & AI Engineer</span>
+      </div>
+    </a>
 
-  <header>
-    <div class="container">
-      <div class="logo">
-      <img src="..\assets\logo.png" alt="Logo" />
-      <h3>
-        <span>
-            <div class='console-container'><span id='text'></span>
-                <div class='console-underscore' id='console'>&#95;</div>
-            </div>
-        </span>
-        
-      </h3>
+    <div class="header-status">
+      <span class="pulse-dot"></span>
+      <span>Available for Roles & Consulting</span>
     </div>
 
-      <div class="links">
+    <button class="menu-btn" type="button" aria-label="Toggle navigation" (click)="toggleHamMenu()">
+      <span [class.active]="hamMenuOpen"></span>
+      <span [class.active]="hamMenuOpen"></span>
+      <span [class.active]="hamMenuOpen"></span>
+    </button>
+
+    <div class="links" [class.open]="hamMenuOpen">
+      <ul>
+        <li>
+          <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="setHamMenuClass()">
+            Home
+          </a>
+        </li>
+        <li>
+          <a routerLink="/portfolio" routerLinkActive="active" (click)="setHamMenuClass()">
+            Work & Projects
+          </a>
+        </li>
+        <li>
+          <a routerLink="/blog" routerLinkActive="active" (click)="setHamMenuClass()">
+            Articles
+          </a>
+        </li>
+        <li>
+          <a routerLink="/contact" routerLinkActive="active" (click)="setHamMenuClass()">
+            Contact
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-cta">
+        <a class="btn primary" href="assets/Chetan-Deore-Resume.pdf" target="_blank">
+          <i class="fa-solid fa-file-arrow-down"></i> Resume ↗
+        </a>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <a class="resume-btn" href="assets/Chetan-Deore-Resume.pdf" target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-file-pdf"></i> Resume ↗
+      </a>
+      <a class="contact-nav-btn" routerLink="/contact">
+        Let's Talk →
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="footer-wrap">
+  <div class="page-pad footer-content">
+    <div class="footer-grid">
+      <div class="footer-bio">
+        <div class="footer-brand">
+          <img src="assets/headshot.png" alt="Chetan Deore" class="footer-avatar" width="46" height="46">
+          <div>
+            <h3>Chetan Deore</h3>
+            <p>Senior Software Engineer · .NET 8 & Generative AI</p>
+          </div>
+        </div>
+        <p class="bio-text">
+          Shipping high-scale production systems handling 5M+ monthly transactions at 99.2% uptime. 
+          Specializing in .NET 8 microservices, Semantic Kernel RAG pipelines, and agentic engineering workflows.
+        </p>
+        <div class="location-tag">
+          <i class="fa-solid fa-location-dot"></i> Pune, Maharashtra, India · Open to Worldwide Remote & Hybrid
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
         <ul>
-          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="setHamMenuClass()">Home</a></li>
-          <li><a routerLink="/portfolio" routerLinkActive="active" (click)="setHamMenuClass()">Portfolio</a></li>
-          <li><a routerLink="/blog" routerLinkActive="active" (click)="setHamMenuClass()">Blog</a></li>
-          <li><a routerLink="/contact" routerLinkActive="active" (click)="setHamMenuClass()">Contact</a></li>
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/portfolio">Featured Projects</a></li>
+          <li><a routerLink="/blog">Engineering Articles</a></li>
+          <li><a routerLink="/contact">Get In Touch</a></li>
         </ul>
       </div>
 
-      <div class="overlay"></div>
-
-      <div class="hamburger-menu">
-        <div class="bar" (click)="setHamMenuClass()">
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <div class="page-content">
-    <router-outlet></router-outlet>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Chetan Deore</h3>
-          <p>Senior Software Engineer specializing in .NET 8+, Angular, Azure, AI-augmented development, and agentic delivery workflows.</p>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/cdeore/" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-linkedin"></i>
+      <div class="footer-col">
+        <h4>Connect & Social</h4>
+        <ul class="social-list">
+          <li>
+            <a href="https://linkedin.com/in/cdeore" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin"></i> LinkedIn
             </a>
+          </li>
+          <li>
             <a href="https://github.com/chetandeo" target="_blank" rel="noopener noreferrer">
-              <i class="fab fa-github"></i>
+              <i class="fa-brands fa-github"></i> GitHub
             </a>
+          </li>
+          <li>
             <a href="mailto:cdeore20@gmail.com">
-              <i class="fas fa-envelope"></i>
+              <i class="fa-solid fa-envelope"></i> cdeore20@gmail.com
             </a>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a routerLink="/">Home</a></li>
-            <li><a routerLink="/portfolio">Portfolio</a></li>
-            <li><a routerLink="/blog">Blog</a></li>
-            <li><a routerLink="/contact">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h4>Technologies</h4>
-          <ul>
-            <li>.NET 8</li>
-            <li>Amazon Q</li>
-            <li>GitHub Copilot</li>
-            <li>Angular 14+</li>
-          </ul>
-        </div>
+          </li>
+          <li>
+            <a href="tel:+919503002981">
+              <i class="fa-solid fa-phone"></i> +91 9503002981
+            </a>
+          </li>
+        </ul>
       </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; {{ currentYear }} Chetan Deore. All rights reserved.</p>
+
+      <div class="footer-col footer-action-col">
+        <h4>Direct Resume</h4>
+        <p class="resume-note">Download the latest ATS-optimized 2-page engineering resume (Updated 2026).</p>
+        <a href="assets/Chetan-Deore-Resume.pdf" target="_blank" class="footer-resume-btn">
+          <i class="fa-solid fa-file-arrow-down"></i> Download Resume PDF
+        </a>
       </div>
     </div>
-  </footer>
-</div>
+
+    <div class="footer-bottom">
+      <p>© {{ currentYear }} Chetan Deore. All rights reserved.</p>
+      <p class="tech-stack-note">Built with Angular 14+, Modern SCSS & Clean Architecture.</p>
+    </div>
+  </div>
+</footer>
